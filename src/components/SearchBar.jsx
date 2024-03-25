@@ -10,13 +10,13 @@ function SearchBar({ text }) {
   };
 
   return (
-    <section className="w-full flex justify-start items-center relative">
+    <section className="w-full flex justify-start items-center relative mb-4">
       <input
         type="text"
-        name=""
-        id=""
+        // name=""
+        // id=""
         placeholder={text}
-        className="w-90 outline-none bg-neutral-200 text-xl p-2 rounded-l-xl"
+        className="w-90 outline-none bg-neutral-200 text-xl py-2 px-3 rounded-l-xl"
         spellCheck="false"
         onChange={handleSearch}
       />

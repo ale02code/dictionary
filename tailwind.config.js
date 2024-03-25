@@ -12,6 +12,11 @@ export default {
       spacing: {
         '90': '90%',
       },
+
+      colors: {
+        'gray-main': '#838383',
+        'purple-main': '#A445ED',
+      },
     },
   },
   plugins: [],

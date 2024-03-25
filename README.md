@@ -5,6 +5,7 @@
 This is a simple dictionary app created with [React](https://reactjs.org/) and [Vite](https://vitejs.dev/).
 
 ## The challenge
+
 Users should be able to:
 
 -Search for words using the input field ❌
@@ -21,3 +22,8 @@ Users should be able to:
 ### API used in the project
 
 -https://api.dictionaryapi.dev/api/v2/entries/en/(Word)
+
+### Color used in the project
+
+The color gray is: #838383,
+The color purple is: #A445ED
