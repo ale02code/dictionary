@@ -30,11 +30,10 @@ function App() {
   }, [search]);
 
   useEffect(() => {
-    if (word.length > 0) {
-      if (word[0]?.phonetics && word[0].phonetics[0]?.audio) {
-        setSoundWord(word[0].phonetics[0].audio);
-      } else {
-        setSoundWord("");
+    if (word && word.length > 0 && word[0].phonetics) {
+      const soundsCheck = word[0].phonetics.filter((item) => item.audio !== "");
+      if (soundsCheck.length > 0) {
+        setSoundWord(soundsCheck[0].audio);
       }
     }
   }, [word]);
