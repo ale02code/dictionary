@@ -24,9 +24,7 @@ Users should be able to:
 
 -See hover and focus states for all interactive elements on the page ❌
 
--Bonus: Have the correct color scheme chosen for them based on their computer preferences. Hint: Research❌
-
--prefers-color-scheme in CSS. ❌
+-Bonus: Have the correct color scheme chosen for them based on their computer preferences. Hint: Research prefers-color-scheme in CSS. ❌
 
 ### API used in the project
 

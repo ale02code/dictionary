@@ -7,6 +7,7 @@ import bookImg from "./assets/images/book.svg";
 import moonImgTheme from "./assets/images/icon-moon.svg";
 import waitingSearch from "./assets/images/wait-search.svg";
 import { SearchContext } from "./context/Search";
+import { TypeFontContext } from "./context/TypeFont";
 
 import playSound from "./assets/images/icon-play.svg";
 
@@ -16,6 +17,7 @@ const API_URL = "https://api.dictionaryapi.dev/api/v2/entries/en/";
 
 function App() {
   const { search } = useContext(SearchContext);
+  const { typeFont } = useContext(TypeFontContext);
 
   const [word, setWord] = useState([]);
 
@@ -44,14 +46,18 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen w-screen flex justify-center items-start dark:bg-black">
+    <div
+      className={`min-h-screen w-screen flex justify-center items-start dark:bg-black ${
+        "font-" + typeFont
+      }`}
+    >
       <main className="h-full w-90 py-8 flex flex-col items-center dark:text-white">
         <header className="w-full flex justify-between items-center mb-5">
           <div>
             <img src={bookImg} alt="book" />
           </div>
           <div className="h-full flex justify-center items-center gap-2">
-            <div className="h-9 border-r-2 border-r-gray-300 pr-2 flex justify-center items-center">
+            <div className="h-9 w-28 border-r-2 border-r-gray-300 pr-2 flex justify-center items-center">
               <ListFonts />
             </div>
             <ChangeThemeButton />
