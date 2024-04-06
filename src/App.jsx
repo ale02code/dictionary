@@ -24,11 +24,12 @@ function App() {
   const [soundWord, setSoundWord] = useState("");
 
   useEffect(() => {
-    fetch(API_URL + search)
-      .then((res) => res.json())
-      .then((data) => {
-        setWord(data);
-      });
+    search &&
+      fetch(API_URL + search)
+        .then((res) => res.json())
+        .then((data) => {
+          setWord(data);
+        });
   }, [search]);
 
   useEffect(() => {
@@ -48,7 +49,7 @@ function App() {
   return (
     <div
       className={`min-h-screen w-screen flex justify-center items-start dark:bg-black ${
-        "font-" + typeFont
+        "font-" + "mono"
       }`}
     >
       <main className="h-full w-90 py-8 flex flex-col items-center dark:text-white">
