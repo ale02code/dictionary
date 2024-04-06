@@ -27,14 +27,19 @@ function SearchBar({ text }) {
       <input
         type="text"
         placeholder={text}
-        className="w-90 outline-none bg-neutral-200 text-xl py-2 px-3 rounded-l-xl"
+        className="w-90 outline-none bg-neutral-200 text-xl py-2 px-3 rounded-l-xl dark:bg-neutral-800"
         spellCheck="false"
         onChange={handleChangeWord}
         onKeyDown={handleKeyDown}
         value={wordValue}
       />
-      <div className="h-full flex justify-center items-center absolute right-0 bg-neutral-200 w-[11%] rounded-r-xl z-10">
-        <img src={searchImg} alt="search-icon" onClick={handleSendWord} />
+      <div className="h-full flex justify-center items-center absolute right-0 bg-neutral-200 w-[11%] rounded-r-xl z-10 dark:bg-neutral-800">
+        <img
+          src={searchImg}
+          alt="search-icon"
+          onClick={handleSendWord}
+          className="cursor-pointer"
+        />
       </div>
     </section>
   );

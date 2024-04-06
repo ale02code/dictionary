@@ -44,167 +44,175 @@ function App() {
   };
 
   return (
-    <main className="h-full w-90 py-8 flex flex-col items-center">
-      <header className="w-full flex justify-between items-center mb-4">
-        <div>
-          <img src={bookImg} alt="book" />
-        </div>
-        <div className="h-full flex justify-center items-center gap-2">
-          <div className="h-9 border-r-2 border-r-gray-300 pr-2 flex justify-center items-center">
-            <ListFonts />
+    <div className="min-h-screen w-screen flex justify-center items-start dark:bg-black">
+      <main className="h-full w-90 py-8 flex flex-col items-center dark:text-white">
+        <header className="w-full flex justify-between items-center mb-5">
+          <div>
+            <img src={bookImg} alt="book" />
           </div>
-          <ChangeThemeButton />
-          <img src={moonImgTheme} alt="moon-theme" />
-        </div>
-      </header>
+          <div className="h-full flex justify-center items-center gap-2">
+            <div className="h-9 border-r-2 border-r-gray-300 pr-2 flex justify-center items-center">
+              <ListFonts />
+            </div>
+            <ChangeThemeButton />
+            <img src={moonImgTheme} alt="moon-theme" />
+          </div>
+        </header>
 
-      <SearchBar text="keyboard..." />
+        <SearchBar text="keyboard..." />
 
-      {search == "" ? (
-        <div className="w-90 flex flex-col justify-center items-center gap-4">
-          <h1 className="text-4xl font-bold">Search a word</h1>
-          <img src={waitingSearch} alt="Waiting search" />
-        </div>
-      ) : (
-        <section className="w-full flex flex-col justify-center items-start">
-          {word.length > 0 && word[0].meanings ? (
-            word.slice(0, 1).map((word, i) => (
-              <article key={i} className="w-full">
-                <header className="w-full flex justify-between items-center mb-4">
-                  <div>
-                    <strong className="text-5xl">{word.word}</strong>
-                    <p className="text-2xl text-purple-main">
-                      {word.phonetics?.[1]?.text}
-                    </p>
-                  </div>
-                  <img
-                    src={playSound}
-                    alt="play"
-                    className="cursor-pointer h-14"
-                    onClick={handlePlaySound}
-                  />
-
-                  {console.log(word)}
-                </header>
-
-                <section className="w-full">
-                  <header className="w-full flex mb-4">
-                    <strong className="text-xl pr-4">
-                      {word.meanings[0]?.partOfSpeech}
-                    </strong>
-                    <div className="w-full flex justify-center items-center">
-                      <hr className="w-full" />
+        {search == "" ? (
+          <div className="w-90 flex flex-col justify-center items-center gap-4">
+            <h1 className="text-4xl font-bold">Search a word</h1>
+            <img src={waitingSearch} alt="Waiting search" />
+          </div>
+        ) : (
+          <section className="w-full flex flex-col justify-center items-start">
+            {word.length > 0 && word[0].meanings ? (
+              word.slice(0, 1).map((word, i) => (
+                <article key={i} className="w-full">
+                  <header className="w-full flex justify-between items-center mb-5">
+                    <div>
+                      <strong className="text-5xl">{word.word}</strong>
+                      <p className="text-2xl text-purple-main">
+                        {word.phonetics?.[1]?.text}
+                      </p>
                     </div>
+                    <img
+                      src={playSound}
+                      alt="play"
+                      className="cursor-pointer h-14"
+                      onClick={handlePlaySound}
+                    />
+
+                    {console.log(word)}
                   </header>
 
-                  <div>
-                    <p className="block text-gray-main mb-2">Meaning</p>
-                    <ul>
-                      {word.meanings[0]?.definitions &&
-                        word.meanings[0]?.definitions.map((def, i) => (
-                          <li
-                            key={i}
-                            className="list-disc ml-4 text-purple-main mb-3"
-                          >
-                            <span className="text-black">{def.definition}</span>
-                            <br></br>
-                            <p className="text-gray-main">
-                              {def.example && `"${def.example}}"`}
-                            </p>
-                          </li>
-                        ))}
-                    </ul>
-                  </div>
+                  <section className="w-full">
+                    <header className="w-full flex mb-5">
+                      <strong className="text-xl pr-4">
+                        {word.meanings[0]?.partOfSpeech}
+                      </strong>
+                      <div className="w-full flex justify-center items-center">
+                        <hr className="w-full" />
+                      </div>
+                    </header>
 
-                  <div className="w-full mb-4">
-                    <p className="inline text-gray-main mb-2 pr-4">Synonyms</p>
-                    {word.meanings[0]?.synonyms.length > 5 ? (
-                      <>
-                        {word.meanings[0]?.synonyms
-                          .slice(0, 4)
-                          .map((syn, i) => (
+                    <div>
+                      <p className="block text-gray-main mb-2">Meaning</p>
+                      <ul>
+                        {word.meanings[0]?.definitions &&
+                          word.meanings[0]?.definitions.map((def, i) => (
+                            <li
+                              key={i}
+                              className="list-disc ml-4 text-purple-main mb-3"
+                            >
+                              <span className="text-black dark:text-white">
+                                {def.definition}
+                              </span>
+                              <br></br>
+                              <p className="text-gray-main">
+                                {def.example && `"${def.example}"`}
+                              </p>
+                            </li>
+                          ))}
+                      </ul>
+                    </div>
+
+                    <div className="w-full mb-5">
+                      <p className="inline text-gray-main mb-2 pr-4">
+                        Synonyms
+                      </p>
+                      {word.meanings[0]?.synonyms.length > 5 ? (
+                        <>
+                          {word.meanings[0]?.synonyms
+                            .slice(0, 4)
+                            .map((syn, i) => (
+                              <p
+                                key={i}
+                                className="inline text-purple-main font-semibold"
+                              >
+                                {syn}
+                                {i !== 3 ? ", " : ". "}
+                              </p>
+                            ))}
+                        </>
+                      ) : (
+                        <>
+                          {word.meanings[0]?.synonyms.map((syn, i) => (
                             <p
                               key={i}
                               className="inline text-purple-main font-semibold"
                             >
                               {syn}
-                              {i !== 3 ? ", " : ". "}
+                              {i !== word.meanings[0].synonyms.length - 1
+                                ? ", "
+                                : ". "}
                             </p>
                           ))}
-                      </>
-                    ) : (
-                      <>
-                        {word.meanings[0]?.synonyms.map((syn, i) => (
-                          <p
-                            key={i}
-                            className="inline text-purple-main font-semibold"
-                          >
-                            {syn}
-                            {i !== word.meanings[0].synonyms.length - 1
-                              ? ", "
-                              : ". "}
-                          </p>
-                        ))}
-                      </>
-                    )}
-                  </div>
-
-                  <div className="w-full flex mb-4">
-                    <strong className="text-xl pr-4">
-                      {word.meanings[1]?.partOfSpeech}
-                    </strong>
-                    <div className="w-full flex justify-center items-center">
-                      <hr className="w-full" />
+                        </>
+                      )}
                     </div>
-                  </div>
 
-                  <div>
-                    <p className="block text-gray-main mb-2">Meaning</p>
-                    <ul>
-                      {word.meanings[1] &&
-                        word.meanings[1].definitions &&
-                        word.meanings[1].definitions.map((def, i) => (
-                          <li
-                            key={i}
-                            className="list-disc ml-4 text-purple-main mb-3"
-                          >
-                            <span className="text-black">{def.definition}</span>
-                            <br></br>
-                            <p className="text-gray-main">
-                              {def.example && `"${def.example}"`}
-                            </p>
-                          </li>
-                        ))}
-                    </ul>
-                  </div>
+                    <div className="w-full flex mb-5">
+                      <strong className="text-xl pr-4">
+                        {word.meanings[1]?.partOfSpeech}
+                      </strong>
+                      <div className="w-full flex justify-center items-center">
+                        <hr className="w-full" />
+                      </div>
+                    </div>
 
-                  <hr className="w-full mb-4"></hr>
+                    <div>
+                      <p className="block text-gray-main mb-2">Meaning</p>
+                      <ul>
+                        {word.meanings[1] &&
+                          word.meanings[1].definitions &&
+                          word.meanings[1].definitions.map((def, i) => (
+                            <li
+                              key={i}
+                              className="list-disc ml-4 text-purple-main mb-3"
+                            >
+                              <span className="text-black dark:text-white">
+                                {def.definition}
+                              </span>
+                              <br></br>
+                              <p className="text-gray-main">
+                                {def.example && `"${def.example}"`}
+                              </p>
+                            </li>
+                          ))}
+                      </ul>
+                    </div>
 
-                  <div className="mb-4 flex justify-start items-center">
-                    <p className="inline pr-4">Source</p>
-                    <a
-                      href={word.sourceUrls[0]}
-                      className="underline text-sm inline-block mr-1"
-                    >
-                      {word.sourceUrls[0]}
-                    </a>
-                    <img
-                      src={newWindowsIcon}
-                      alt="new-windows-icon"
-                      className="inline-block"
-                    />
-                  </div>
-                </section>
-              </article>
-            ))
-          ) : (
-            <div className="w-full flex flex-col justify-center items-center gap-4">
-              <h1 className="text-4xl font-bold">No results found</h1>
-            </div>
-          )}
-        </section>
-      )}
-    </main>
+                    <hr className="w-full mb-5"></hr>
+
+                    <div className="mb-5 flex justify-start items-center">
+                      <p className="inline pr-4">Source</p>
+                      <a
+                        href={word.sourceUrls[0]}
+                        className="underline text-sm inline-block mr-1"
+                      >
+                        {word.sourceUrls[0]}
+                      </a>
+                      <img
+                        src={newWindowsIcon}
+                        alt="new-windows-icon"
+                        className="inline-block"
+                      />
+                    </div>
+                  </section>
+                </article>
+              ))
+            ) : (
+              <div className="w-full flex flex-col justify-center items-center gap-4">
+                <h1 className="text-4xl font-bold">No results found</h1>
+              </div>
+            )}
+          </section>
+        )}
+      </main>
+    </div>
   );
 }
 
