@@ -15,7 +15,7 @@ function ListFonts() {
 
   return (
     <section className="flex gap-2 relative justify-center">
-      <p>{currentFont}</p>
+      <p onClick={() => setVisible(!visible)}>{currentFont}</p>
       <img
         src={ArrowDown}
         alt="arrow-down"
@@ -35,21 +35,30 @@ function ListFonts() {
           <li
             id="serif"
             className="hover:cursor-pointer"
-            onClick={handleChangeFont}
+            onClick={(e) => {
+              handleChangeFont(e);
+              setVisible(false);
+            }}
           >
             serif
           </li>
           <li
             id="sans"
             className="hover:cursor-pointer"
-            onClick={handleChangeFont}
+            onClick={(e) => {
+              handleChangeFont(e);
+              setVisible(false);
+            }}
           >
             sans serif
           </li>
           <li
             id="mono"
             className="hover:cursor-pointer"
-            onClick={handleChangeFont}
+            onClick={(e) => {
+              handleChangeFont(e);
+              setVisible(false);
+            }}
           >
             monospace
           </li>

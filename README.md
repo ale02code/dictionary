@@ -28,7 +28,7 @@ Users should be able to:
 
 ### API used in the project
 
-https://api.dictionaryapi.dev/api/v2/entries/en/(Word)
+https://api.dictionaryapi.dev/api/v2/entries/en/(Word)  
 
 ### Color used in the project
 
