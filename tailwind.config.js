@@ -8,6 +8,9 @@ export default {
   theme: {
     extend: {
       fontFamily: {
+        serif: ['serif'],
+        sans: ['sans-serif'],
+        mono: ['monospace'],
       },
 
       spacing: {

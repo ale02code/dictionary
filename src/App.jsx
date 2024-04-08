@@ -40,7 +40,7 @@ function App() {
       }
     }
 
-    console.log(typeFont)
+    console.log(typeFont);
   }, [word]);
 
   const handlePlaySound = () => {
@@ -50,7 +50,9 @@ function App() {
 
   return (
     <div
-      className={`min-h-screen w-screen flex justify-center items-start dark:bg-black ${"font-" + typeFont}`}
+      className={`min-h-screen w-screen flex justify-center items-start dark:bg-black ${
+        "font-" + typeFont
+      }`}
     >
       <main className="h-full w-90 py-8 flex flex-col items-center dark:text-white">
         <header className="w-full flex justify-between items-center mb-5">
