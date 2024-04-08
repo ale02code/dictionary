@@ -1,13 +1,13 @@
 import { useEffect, useState, useContext } from "react";
 
 import ChangeThemeButton from "./components/ChangeThemeButton";
-import ListFonts from "./components/ListFonts";
+// import ListFonts from "./components/ListFonts";
 import SearchBar from "./components/SearchBar";
 import bookImg from "./assets/images/book.svg";
 import moonImgTheme from "./assets/images/icon-moon.svg";
 import waitingSearch from "./assets/images/wait-search.svg";
 import { SearchContext } from "./context/Search";
-import { TypeFontContext } from "./context/TypeFont";
+// import { TypeFontContext } from "./context/TypeFont";
 
 import playSound from "./assets/images/icon-play.svg";
 
@@ -17,7 +17,7 @@ const API_URL = "https://api.dictionaryapi.dev/api/v2/entries/en/";
 
 function App() {
   const { search } = useContext(SearchContext);
-  const { typeFont } = useContext(TypeFontContext);
+  // const { typeFont } = useContext(TypeFontContext);
 
   const [word, setWord] = useState([]);
 
@@ -39,8 +39,6 @@ function App() {
         setSoundWord(soundsCheck[0].audio);
       }
     }
-
-    console.log(typeFont);
   }, [word]);
 
   const handlePlaySound = () => {
@@ -50,18 +48,16 @@ function App() {
 
   return (
     <div
-      className={`min-h-screen w-screen flex justify-center items-start dark:bg-black ${
-        "font-" + typeFont
-      }`}
+      className={`min-h-screen w-screen flex justify-center items-start dark:bg-black font-serif`}
     >
-      <main className="h-full w-90 py-8 flex flex-col items-center dark:text-white">
+      <main className="h-full w-90 max-w-2xl py-8 flex flex-col items-center dark:text-white overflow-hidden">
         <header className="w-full flex justify-between items-center mb-5">
           <div>
             <img src={bookImg} alt="book" />
           </div>
           <div className="h-full flex justify-center items-center gap-2">
             <div className="h-9 w-28 border-r-2 border-r-gray-300 pr-2 flex justify-center items-center">
-              <ListFonts />
+              {/* <ListFonts /> */}
             </div>
             <ChangeThemeButton />
             <img src={moonImgTheme} alt="moon-theme" />
@@ -76,7 +72,7 @@ function App() {
             <img src={waitingSearch} alt="Waiting search" />
           </div>
         ) : (
-          <section className="w-full flex flex-col justify-center items-start">
+          <section className="w-full flex flex-col justify-center items-start overflow-hidden">
             {word.length > 0 && word[0].meanings ? (
               word.slice(0, 1).map((word, i) => (
                 <article key={i} className="w-full">
