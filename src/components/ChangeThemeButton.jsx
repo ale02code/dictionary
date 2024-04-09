@@ -1,15 +1,15 @@
 function ChangeThemeButton() {
-  const root = document.querySelector("#root");
+  const doc = document.documentElement;
 
   const changeTheme = () => {
-    root.classList.toggle("dark");
+    doc.classList.toggle("dark");
   };
 
   return (
     <input
       type="range"
       max={1}
-      defaultValue={root.classList.contains("dark") ? 1 : 0}
+      defaultValue={doc.classList.contains("dark") ? 1 : 0}
       onChange={changeTheme}
       className="outline-none appearance-none cursor-pointer w-12 h-6 bg-gray-main rounded-xl px-1 
       [&::-webkit-slider-thumb]:w-4

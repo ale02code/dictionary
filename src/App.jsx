@@ -8,6 +8,7 @@ import moonImgTheme from "./assets/images/icon-moon.svg";
 import waitingSearch from "./assets/images/wait-search.svg";
 import { SearchContext } from "./context/Search";
 // import { TypeFontContext } from "./context/TypeFont";
+import { prefersScheme } from "./utils/prefersScheme";
 
 import playSound from "./assets/images/icon-play.svg";
 
@@ -16,6 +17,7 @@ import newWindowsIcon from "./assets/images/icon-new-window.svg";
 const API_URL = "https://api.dictionaryapi.dev/api/v2/entries/en/";
 
 function App() {
+  prefersScheme();
   const { search } = useContext(SearchContext);
   // const { typeFont } = useContext(TypeFontContext);
 
@@ -53,14 +55,29 @@ function App() {
       <main className="h-full w-90 max-w-2xl py-8 flex flex-col items-center dark:text-white overflow-hidden">
         <header className="w-full flex justify-between items-center mb-5">
           <div>
-            <img src={bookImg} alt="book" />
+            <img
+              src={bookImg}
+              alt="book"
+              className="focus:outline-1 focus:outline-purple-main"
+              tabIndex={1}
+            />
           </div>
           <div className="h-full flex justify-center items-center gap-2">
             <div className="h-9 w-28 border-r-2 border-r-gray-300 pr-2 flex justify-center items-center">
               {/* <ListFonts /> */}
             </div>
-            <ChangeThemeButton />
-            <img src={moonImgTheme} alt="moon-theme" />
+            <div
+              className="focus:outline-1 focus:outline-purple-main"
+              tabIndex={3}
+            >
+              <ChangeThemeButton />
+            </div>
+            <img
+              src={moonImgTheme}
+              alt="moon-theme"
+              className="focus:outline-1 focus:outline-purple-main"
+              tabIndex={4}
+            />
           </div>
         </header>
 
@@ -69,7 +86,11 @@ function App() {
         {search == "" ? (
           <div className="w-90 flex flex-col justify-center items-center gap-4">
             <h1 className="text-4xl font-bold">Search a word</h1>
-            <img src={waitingSearch} alt="Waiting search" />
+            <img
+              src={waitingSearch}
+              alt="Waiting search"
+              className="md:max-w-md"
+            />
           </div>
         ) : (
           <section className="w-full flex flex-col justify-center items-start overflow-hidden">
@@ -196,7 +217,7 @@ function App() {
                       <p className="inline pr-4">Source</p>
                       <a
                         href={word.sourceUrls[0]}
-                        className="underline text-sm inline-block mr-1"
+                        className="underline text-sm inline-block mr-1 focus:outline-1 focus:outline-purple-main"
                       >
                         {word.sourceUrls[0]}
                       </a>
