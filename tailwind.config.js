@@ -7,6 +7,12 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        serif: "serif, 'Inter'",
+        sans: "sans-serif, 'Inter'",
+        mono: "monospace, 'Inter'",
+      },
+
       spacing: {
         '90': '90%',
       },

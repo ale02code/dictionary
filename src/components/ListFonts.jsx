@@ -33,7 +33,7 @@ function ListFonts() {
           }
         >
           <li
-            id="serif"
+            id="font-serif"
             className="hover:cursor-pointer"
             onClick={(e) => {
               handleChangeFont(e);
@@ -43,7 +43,7 @@ function ListFonts() {
             serif
           </li>
           <li
-            id="sans"
+            id="font-sans"
             className="hover:cursor-pointer"
             onClick={(e) => {
               handleChangeFont(e);
@@ -53,7 +53,7 @@ function ListFonts() {
             sans serif
           </li>
           <li
-            id="mono"
+            id="font-mono"
             className="hover:cursor-pointer"
             onClick={(e) => {
               handleChangeFont(e);
