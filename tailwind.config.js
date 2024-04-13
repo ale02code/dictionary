@@ -9,8 +9,8 @@ export default {
     extend: {
       fontFamily: {
         serif: "serif, 'Inter'",
-        sans: "sans-serif, 'Inter'",
-        mono: "monospace, 'Inter'",
+        sans: "sans-serif",
+        mono: "'Space Mono', monospace",
       },
 
       spacing: {
