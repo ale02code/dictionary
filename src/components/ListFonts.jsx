@@ -15,9 +15,12 @@ function ListFonts() {
 
   return (
     <section className="flex gap-2 relative justify-center">
-      <p onClick={() => setVisible(!visible)}>{currentFont}</p>
+      <p className="hover:cursor-pointer" onClick={() => setVisible(!visible)}>
+        {currentFont}
+      </p>
       <img
         src={ArrowDown}
+        className="hover:cursor-pointer"
         alt="arrow-down"
         onClick={() => setVisible(!visible)}
       />
