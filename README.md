@@ -16,7 +16,7 @@ Users should be able to:
 
 -Play the audio file for a word when it's available ✅
 
--Switch between serif, sans serif, and monospace fonts ❌
+-Switch between serif, sans serif, and monospace fonts ✅
 
 -Switch between light and dark themes ✅
 

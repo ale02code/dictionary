@@ -16,6 +16,9 @@ import newWindowsIcon from "./assets/images/icon-new-window.svg";
 
 import { getWord } from "./services/dictionary";
 
+// style for loeader
+import "./assets/styles/loader.css";
+
 function App() {
   prefersScheme();
   const { search } = useContext(SearchContext);
@@ -33,6 +36,7 @@ function App() {
         setWord(response);
         setIsloading(false);
       } catch (e) {
+        // ! TODO add section for show no results
         // <div className="w-full flex flex-col justify-center items-center gap-4">
         //   <h1 className="text-4xl font-bold">No results found</h1>
         // </div>;
