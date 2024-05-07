@@ -10,6 +10,7 @@ function ResponseSucces() {
   const [soundWord, setSoundWord] = useState("");
 
   useEffect(() => {
+    // !API audio not working
     if (word && word.phonetics) {
       const soundsCheck = word.phonetics.filter((item) => item.audio !== "");
       if (soundsCheck.length > 0) {
@@ -19,8 +20,12 @@ function ResponseSucces() {
   }, [word]);
 
   const handlePlaySound = () => {
-    let audio = new Audio(soundWord);
-    audio.play();
+    if (soundWord !== "") {
+      let audio = new Audio(soundWord);
+      audio.play();
+    } else {
+      console.warn("No hay URL de audio disponible.");
+    }
   };
 
   return (
@@ -36,7 +41,7 @@ function ResponseSucces() {
         </div>
         <img
           src={playSound}
-          alt="play"
+          alt="play-button"
           className="cursor-pointer h-14"
           onClick={handlePlaySound}
         />

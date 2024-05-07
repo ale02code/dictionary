@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import bookImg from "../assets/images/book.svg";
 import moonImgTheme from "../assets/images/icon-moon.svg";
 
@@ -9,7 +9,9 @@ import ChangeThemeButton from "./ChangeThemeButton";
 import { prefersScheme } from "../utils/prefersScheme";
 
 function Header() {
-  prefersScheme();
+  useEffect(() => {
+    prefersScheme();
+  }, []);
 
   return (
     <>
