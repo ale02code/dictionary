@@ -2,7 +2,7 @@
 
 ## Description
 
-This is a simple dictionary app created with [React](https://reactjs.org/) and [Vite](https://vitejs.dev/).
+This is a simple dictionary web created with [React](https://reactjs.org/) and [Vite](https://vitejs.dev/).
 
 ## The challenge
 
