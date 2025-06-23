@@ -1,11 +1,11 @@
-import React, { useState, useEffect, useContext } from "react";
+import { useState, useEffect, useContext } from "react";
 
 import playSound from "../assets/images/icon-play.svg";
 import newWindowsIcon from "../assets/images/icon-new-window.svg";
 
 import { WordContext } from "../context/WordContext";
 
-function ResponseSucces() {
+function ResponseSuccess() {
   const { word } = useContext(WordContext);
   const [soundWord, setSoundWord] = useState("");
 
@@ -131,4 +131,4 @@ function ResponseSucces() {
   );
 }
 
-export default ResponseSucces;
+export default ResponseSuccess;

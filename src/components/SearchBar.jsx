@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 import searchImg from "../assets/images/icon-search.svg";
 import { useContext } from "react";
@@ -42,7 +42,7 @@ function SearchBar({ text }) {
           src={searchImg}
           alt="search-icon"
           onClick={handleSendWord}
-          className="cursor-pointer"
+          className="cursor-pointer h-6 w-6"
         />
       </div>
     </section>

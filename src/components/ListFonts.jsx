@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import { useState, useContext } from "react";
 import ArrowDown from "../assets/images/icon-arrow-down.svg";
 import { TypeFontContext } from "../context/TypeFont";
 
@@ -14,13 +14,13 @@ function ListFonts() {
   };
 
   return (
-    <section className="flex gap-2 relative justify-center">
+    <section className="flex gap-2 relative justify-center items-center">
       <p className="hover:cursor-pointer" onClick={() => setVisible(!visible)}>
         {currentFont}
       </p>
       <img
         src={ArrowDown}
-        className="hover:cursor-pointer"
+        className="hover:cursor-pointer h-3 w-3"
         alt="arrow-down"
         onClick={() => setVisible(!visible)}
       />

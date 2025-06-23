@@ -3,7 +3,7 @@ import { useEffect, useState, useContext } from "react";
 import Header from "./components/Header";
 import SearchBar from "./components/SearchBar";
 import SearchText from "./components/SearchText";
-import ResponseSucces from "./components/ResponseSucces";
+import ResponseSuccess from "./components/ResponseSuccess";
 import NoResults from "./components/NoResults";
 
 import { SearchContext } from "./context/Search";
@@ -56,7 +56,7 @@ function App() {
               <Loader />
             ) : (
               <section className="w-full flex flex-col justify-center items-start overflow-hidden">
-                {errorWord ? <NoResults /> : <ResponseSucces />}
+                {errorWord ? <NoResults /> : <ResponseSuccess />}
               </section>
             )}
           </>

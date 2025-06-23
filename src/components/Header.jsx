@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import bookImg from "../assets/images/book.svg";
-import moonImgTheme from "../assets/images/icon-moon.svg";
+import themeImg from "../assets/images/icon-moon.svg";
 
 import ListFonts from "./ListFonts";
 import ChangeThemeButton from "./ChangeThemeButton";
@@ -20,8 +20,9 @@ function Header() {
           <img
             src={bookImg}
             alt="book"
-            className="focus:outline-1 focus:outline-purple-main"
+            className="focus:outline-1 focus:outline-purple-main h-10 w-10 cursor-pointer"
             tabIndex={1}
+            draggable="false"
           />
         </div>
         <div className="h-full flex justify-center items-center gap-2">
@@ -29,16 +30,17 @@ function Header() {
             <ListFonts />
           </div>
           <div
-            className="focus:outline-1 focus:outline-purple-main"
+            className="focus:outline-1 focus:outline-purple-main flex"
             tabIndex={3}
           >
             <ChangeThemeButton />
           </div>
           <img
-            src={moonImgTheme}
-            alt="moon-theme"
-            className="focus:outline-1 focus:outline-purple-main"
+            src={themeImg}
+            alt="theme image"
+            className="focus:outline-1 focus:outline-purple-main h-6 w-6"
             tabIndex={4}
+            draggable="false"
           />
         </div>
       </header>
