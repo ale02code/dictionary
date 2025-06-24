@@ -20,7 +20,8 @@ function Header() {
           <img
             src={bookImg}
             alt="book"
-            className="focus:outline-1 focus:outline-purple-main h-10 w-10 cursor-pointer"
+            // TODO: cursor-pointer
+            className="focus:outline-1 focus:outline-purple-main h-10 w-10"
             tabIndex={1}
             draggable="false"
           />

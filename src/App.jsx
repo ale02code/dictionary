@@ -1,12 +1,14 @@
 import { useEffect, useState, useContext } from "react";
 
+// Components imports
 import Header from "./components/Header";
 import SearchBar from "./components/SearchBar";
 import SearchText from "./components/SearchText";
 import ResponseSuccess from "./components/ResponseSuccess";
 import NoResults from "./components/NoResults";
 
-import { SearchContext } from "./context/Search";
+// Contexts imports
+import { SearchContext } from "./context/SearchContext";
 import { TypeFontContext } from "./context/TypeFont";
 import { WordContext } from "./context/WordContext";
 

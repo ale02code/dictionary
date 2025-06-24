@@ -3,14 +3,15 @@ import { useState, useEffect, useContext } from "react";
 import playSound from "../assets/images/icon-play.svg";
 import newWindowsIcon from "../assets/images/icon-new-window.svg";
 
+import { SearchContext } from "../context/SearchContext";
 import { WordContext } from "../context/WordContext";
 
 function ResponseSuccess() {
   const { word } = useContext(WordContext);
+  const { setSearch } = useContext(SearchContext);
   const [soundWord, setSoundWord] = useState("");
 
   useEffect(() => {
-    // !API audio not working
     if (word && word.phonetics) {
       const soundsCheck = word.phonetics.filter((item) => item.audio !== "");
       if (soundsCheck.length > 0) {
@@ -26,6 +27,10 @@ function ResponseSuccess() {
     } else {
       console.warn("No hay URL de audio disponible.");
     }
+  };
+
+  const handleSynonym = (synonym) => {
+    setSearch(synonym);
   };
 
   return (
@@ -72,17 +77,23 @@ function ResponseSuccess() {
           </ul>
         </div>
 
-        <div className="w-full mb-5">
-          <p className="inline text-gray-main mb-2 pr-4">Synonyms</p>
-          <>
-            {word?.synonyms.map((syn, i) => (
-              <p key={i} className="inline text-purple-main font-semibold">
-                {syn}
-                {i !== word.synonyms.length - 1 ? ", " : ". "}
-              </p>
-            ))}
-          </>
-        </div>
+        {word?.synonyms != 0 && (
+          <div className="w-full mb-5">
+            <p className="inline text-gray-main mb-2 pr-4">Synonyms</p>
+            <>
+              {word?.synonyms.map((synonym, i) => (
+                <p
+                  key={i}
+                  className="inline text-purple-main font-semibold cursor-pointer"
+                  onClick={() => handleSynonym(synonym)}
+                >
+                  {synonym}
+                  {i !== word.synonyms.length - 1 ? ", " : ". "}
+                </p>
+              ))}
+            </>
+          </div>
+        )}
 
         <div className="w-full flex mb-5">
           <strong className="text-xl pr-4">{word?.partOfSpeech}</strong>
@@ -117,6 +128,7 @@ function ResponseSuccess() {
           <a
             href={word?.sourceUrls[0]}
             className="underline text-sm inline-block mr-1 focus:outline-1 focus:outline-purple-main"
+            target="_blank"
           >
             {word?.sourceUrls[0]}
           </a>

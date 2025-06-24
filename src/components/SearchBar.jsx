@@ -1,8 +1,7 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 
 import searchImg from "../assets/images/icon-search.svg";
-import { useContext } from "react";
-import { SearchContext } from "../context/Search";
+import { SearchContext } from "../context/SearchContext";
 
 function SearchBar({ text }) {
   const { setSearch } = useContext(SearchContext);

@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { SearchProvider } from "./context/Search";
+import { SearchProvider } from "./context/SearchContext";
 import { TypeFontProvider } from "./context/TypeFont";
-import { WordContextProvider } from "./context/WordContext.jsx";
+import { WordContextProvider } from "./context/WordContext";
 import App from "./App.jsx";
 import "./index.css";
 
