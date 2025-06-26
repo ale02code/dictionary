@@ -14,20 +14,21 @@ function ListFonts() {
   };
 
   return (
-    <section className="flex gap-2 relative justify-center items-center">
-      <p className="hover:cursor-pointer" onClick={() => setVisible(!visible)}>
-        {currentFont}
-      </p>
+    <section
+      className="flex gap-2 relative justify-center items-center cursor-pointer"
+      onClick={() => setVisible(!visible)}
+    >
+      <p>{currentFont}</p>
       <img
         src={ArrowDown}
-        className="hover:cursor-pointer h-3 w-3"
+        className="h-3 w-3"
         alt="arrow-down"
-        onClick={() => setVisible(!visible)}
+        draggable="false"
       />
 
       <div
         className={`absolute border border-black  z-50 rounded-md bg-white transition-all duration-500 ${
-          visible ? "translate-y-[35%] block" : "-translate-y-[140%]"
+          visible ? "translate-y-[65%] block" : "-translate-y-[40%] opacity-0"
         }`}
       >
         <ul
