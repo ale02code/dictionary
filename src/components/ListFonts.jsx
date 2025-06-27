@@ -1,6 +1,6 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import ArrowDown from "../assets/images/icon-arrow-down.svg";
-import { TypeFontContext } from "../context/TypeFont";
+import { TypeFontContext } from "../context/TypeFontContext";
 
 function ListFonts() {
   const { setTypeFont } = useContext(TypeFontContext);

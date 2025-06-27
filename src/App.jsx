@@ -9,7 +9,7 @@ import NoResults from "./components/NoResults";
 
 // Contexts imports
 import { SearchContext } from "./context/SearchContext";
-import { TypeFontContext } from "./context/TypeFont";
+import { TypeFontContext } from "./context/TypeFontContext";
 import { WordContext } from "./context/WordContext";
 
 import Loader from "./components/Loader";
