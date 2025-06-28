@@ -2,15 +2,21 @@ import { useState, useContext, useEffect } from "react";
 import ArrowDown from "../assets/images/icon-arrow-down.svg";
 import { TypeFontContext } from "../context/TypeFontContext";
 
+const fontNames = {
+  "font-serif": "serif",
+  "font-sans": "sans serif",
+  "font-mono": "monospace",
+};
+
 function ListFonts() {
-  const { setTypeFont } = useContext(TypeFontContext);
+  const { typeFont, setTypeFont } = useContext(TypeFontContext);
 
   const [visible, setVisible] = useState(false);
-  const [currentFont, setCurrentFont] = useState("serif");
+  const [currentFont, setCurrentFont] = useState(fontNames[typeFont]);
 
-  const handleChangeFont = (e) => {
-    setTypeFont(e.target.id);
-    setCurrentFont(e.target.innerText);
+  const handleChangeFont = (id_font) => {
+    setTypeFont(id_font);
+    setCurrentFont(fontNames[id_font]);
   };
 
   return (
@@ -36,36 +42,18 @@ function ListFonts() {
             "capitalize min-w-max px-2 py-4 dark:text-black dark:border-white"
           }
         >
-          <li
-            id="font-serif"
-            className="hover:cursor-pointer"
-            onClick={(e) => {
-              handleChangeFont(e);
-              setVisible(false);
-            }}
-          >
-            serif
-          </li>
-          <li
-            id="font-sans"
-            className="hover:cursor-pointer"
-            onClick={(e) => {
-              handleChangeFont(e);
-              setVisible(false);
-            }}
-          >
-            sans serif
-          </li>
-          <li
-            id="font-mono"
-            className="hover:cursor-pointer"
-            onClick={(e) => {
-              handleChangeFont(e);
-              setVisible(false);
-            }}
-          >
-            monospace
-          </li>
+          {Object.entries(fontNames).map(([id_font, label]) => (
+            <li
+              key={id_font}
+              className="hover:cursor-pointer"
+              onClick={() => {
+                handleChangeFont(id_font);
+                setVisible(false);
+              }}
+            >
+              {label}
+            </li>
+          ))}
         </ul>
       </div>
     </section>
