@@ -10,10 +10,3 @@ export function prefersScheme() {
     console.info('El navegador no soporta la propiedad prefers-color-scheme');
   }
 }
-
-window.addEventListener("DOMContentLoaded", () => {
-  setTimeout(() => {
-    document.body.classList.remove("opacity-0");
-    document.body.classList.add("transition-opacity");
-  }, 700);
-});

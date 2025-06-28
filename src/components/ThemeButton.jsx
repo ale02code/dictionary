@@ -1,8 +1,23 @@
-function ChangeThemeButton() {
-  const doc = document.documentElement;
+import { useState, useEffect } from "react";
+const doc = document.documentElement;
+
+function ThemeButton() {
+  let [darkTheme, setDarkTheme] = useState(
+    localStorage.getItem("theme") === "dark"
+  );
+
+  useEffect(() => {
+    if (darkTheme) {
+      doc.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    } else {
+      doc.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    }
+  }, [darkTheme]);
 
   const changeTheme = () => {
-    doc.classList.toggle("dark");
+    setDarkTheme((prevState) => !prevState);
   };
 
   return (
@@ -22,4 +37,4 @@ function ChangeThemeButton() {
   );
 }
 
-export default ChangeThemeButton;
+export default ThemeButton;

@@ -1,18 +1,10 @@
-import { useEffect } from "react";
 import bookImg from "../assets/images/book.svg";
 import themeImg from "../assets/images/icon-moon.svg";
 
 import ListFonts from "./ListFonts";
-import ChangeThemeButton from "./ChangeThemeButton";
-
-// preference Theme
-import { prefersScheme } from "../utils/prefersScheme";
+import ThemeButton from "./ThemeButton";
 
 function Header() {
-  useEffect(() => {
-    prefersScheme();
-  }, []);
-
   return (
     <>
       <header className="w-full flex justify-between items-center mb-5">
@@ -34,7 +26,7 @@ function Header() {
             className="focus:outline-1 focus:outline-purple-main flex"
             tabIndex={3}
           >
-            <ChangeThemeButton />
+            <ThemeButton />
           </div>
           <img
             src={themeImg}
