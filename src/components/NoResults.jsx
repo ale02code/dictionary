@@ -8,6 +8,7 @@ function NoResults() {
         className="w-4/5 h-max md:max-w-md"
         src={notFoundImg}
         alt="word not found image"
+        draggable="false"
       />
     </div>
   );

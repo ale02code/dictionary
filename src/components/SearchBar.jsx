@@ -29,6 +29,8 @@ function SearchBar({ text }) {
       <input
         type="text"
         placeholder={text}
+        //TODO: add styles on focus
+        id="search-bar"
         className="w-90 outline-none bg-neutral-200 text-xl py-3 px-3 rounded-l-xl dark:bg-neutral-800"
         spellCheck="false"
         autoFocus

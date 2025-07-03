@@ -1,3 +1,4 @@
+// Public API for fetching word 
 const API = 'https://api.dictionaryapi.dev/api/v2/entries/en/';
 
 export async function getWord(word = "Fire") {
@@ -11,12 +12,14 @@ export async function getWord(word = "Fire") {
 
     const formattedWord = {
       word: foundWord.word,
-      definitions: foundWord.meanings[0].definitions,
-      synonyms: foundWord.meanings[0].synonyms,
-      partOfSpeech: foundWord.meanings[0].partOfSpeech,
+      meanings: foundWord.meanings.map(meaning => ({
+        partOfSpeech: meaning.partOfSpeech,
+        definitions: meaning.definitions,
+        synonyms: meaning.synonyms,
+      })),
       phonetic: foundWord.phonetic,
       phonetics: foundWord.phonetics,
-      sourceUrls: foundWord.sourceUrls,
+      sourceUrls: foundWord.sourceUrls[0] ,
     };
 
     return formattedWord;

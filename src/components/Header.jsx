@@ -9,14 +9,15 @@ function Header() {
     <>
       <header className="w-full flex justify-between items-center mb-5">
         <div>
-          <img
-            src={bookImg}
-            alt="book"
-            // TODO: cursor-pointer
-            className="focus:outline-1 focus:outline-purple-main h-10 w-10"
-            tabIndex={1}
-            draggable="false"
-          />
+          <a href="/" className="cursor-pointer">
+            <img
+              src={bookImg}
+              alt="book"
+              className="focus:outline-1 focus:outline-purple-main h-10 w-10"
+              tabIndex={1}
+              draggable="false"
+            />
+          </a>
         </div>
         <div className="h-full flex justify-center items-center gap-2">
           <div className="h-9 w-28 border-r-2 border-r-gray-300 pr-2 flex justify-center items-center">

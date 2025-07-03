@@ -38,11 +38,7 @@ function ResponseSuccess() {
       <header className="w-full flex justify-between items-center mb-5">
         <div>
           <strong className="text-5xl">{word?.word}</strong>
-          {word?.phonetics.map((pho, i) => (
-            <p key={i} className="text-2xl text-purple-main">
-              {pho?.[1]?.text}
-            </p>
-          ))}
+          <p className="text-2xl text-purple-main mt-2">{word?.phonetic}</p>
         </div>
         <img
           src={playSound}
@@ -53,84 +49,65 @@ function ResponseSuccess() {
       </header>
 
       <section className="w-full">
-        <header className="w-full flex mb-5">
-          <strong className="text-xl pr-4">{word?.partOfSpeech}</strong>
-          <div className="w-full flex justify-center items-center">
-            <hr className="w-full" />
+        {word?.meanings.map((meaning, i) => (
+          <div key={i}>
+            <header className="w-full flex mb-5">
+              <strong className="text-xl pr-4">{meaning.partOfSpeech}</strong>
+              <div className="w-full flex justify-center items-center">
+                <hr className="w-full" />
+              </div>
+            </header>
+
+            <div className="w-full mb-3">
+              <span className="block text-gray-main mb-2">Meaning</span>
+            </div>
+
+            <div>
+              <ul>
+                {meaning.definitions.map((def, i) => (
+                  <li key={i} className="list-disc ml-6 text-purple-main mb-3">
+                    <span className="text-black dark:text-white">
+                      {def.definition}
+                    </span>
+                    <br />
+                    <p className="text-gray-main">
+                      {def.example && `"${def.example}"`}
+                    </p>
+                  </li>
+                ))}
+              </ul>
+
+              {meaning.partOfSpeech === "noun" &&
+                meaning.synonyms &&
+                meaning.synonyms.length > 0 && (
+                  <div className="w-full mb-5">
+                    <p className="inline text-gray-main mb-2 pr-4">Synonyms</p>
+                    {meaning.synonyms.map((synonym, k) => (
+                      <p
+                        key={k}
+                        className="inline text-purple-main font-semibold cursor-pointer"
+                        onClick={() => handleSynonym(synonym)}
+                      >
+                        {synonym}
+                        {k !== meaning.synonyms.length - 1 ? ", " : "."}
+                      </p>
+                    ))}
+                  </div>
+                )}
+            </div>
           </div>
-        </header>
-
-        <div>
-          <p className="block text-gray-main mb-2">Meaning</p>
-          <ul>
-            {word?.definitions.map((def, i) => (
-              <li key={i} className="list-disc ml-4 text-purple-main mb-3">
-                <span className="text-black dark:text-white">
-                  {def.definition}
-                </span>
-                <br></br>
-                <p className="text-gray-main">
-                  {def.example && `"${def.example}"`}
-                </p>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {word?.synonyms != 0 && (
-          <div className="w-full mb-5">
-            <p className="inline text-gray-main mb-2 pr-4">Synonyms</p>
-            <>
-              {word?.synonyms.map((synonym, i) => (
-                <p
-                  key={i}
-                  className="inline text-purple-main font-semibold cursor-pointer"
-                  onClick={() => handleSynonym(synonym)}
-                >
-                  {synonym}
-                  {i !== word.synonyms.length - 1 ? ", " : ". "}
-                </p>
-              ))}
-            </>
-          </div>
-        )}
-
-        <div className="w-full flex mb-5">
-          <strong className="text-xl pr-4">{word?.partOfSpeech}</strong>
-          <div className="w-full flex justify-center items-center">
-            <hr className="w-full" />
-          </div>
-        </div>
-
-        <div>
-          <p className="block text-gray-main mb-2">Meaning</p>
-          <ul>
-            {word &&
-              word.definitions &&
-              word.definitions.map((def, i) => (
-                <li key={i} className="list-disc ml-4 text-purple-main mb-3">
-                  <span className="text-black dark:text-white">
-                    {def.definition}
-                  </span>
-                  <br></br>
-                  <p className="text-gray-main">
-                    {def.example && `"${def.example}"`}
-                  </p>
-                </li>
-              ))}
-          </ul>
-        </div>
+        ))}
 
         <hr className="w-full mb-5"></hr>
 
         <div className="mb-5 flex justify-start items-center">
           <p className="inline pr-4">Source</p>
           <a
-            href={word?.sourceUrls[0]}
+            href={word?.sourceUrls}
             className="underline text-sm inline-block mr-1 focus:outline-1 focus:outline-purple-main"
             target="_blank"
           >
-            {word?.sourceUrls[0]}
+            {word?.sourceUrls}
           </a>
           <img
             src={newWindowsIcon}
