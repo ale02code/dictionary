@@ -1,7 +1,7 @@
 // Public API for fetching word 
 const API = 'https://api.dictionaryapi.dev/api/v2/entries/en/';
 
-export async function getWord(word = "Fire") {
+export async function getWord(word) {
   try {
     if (!word) return;
 
@@ -19,7 +19,7 @@ export async function getWord(word = "Fire") {
       })),
       phonetic: foundWord.phonetic,
       phonetics: foundWord.phonetics,
-      sourceUrls: foundWord.sourceUrls[0] ,
+      sourceUrls: foundWord.sourceUrls[0],
     };
 
     return formattedWord;

@@ -23,27 +23,27 @@ function SearchBar({ text }) {
 
   return (
     <section
-      className="w-full flex justify-start items-center relative mb-4 focus:outline-1 focus:outline-purple-main overflow-hidden"
+      className="w-[calc(100%-5px)] flex justify-start items-center relative mb-4 overflow-hidden rounded-xl bg-neutral-200 dark:bg-neutral-800"
       tabIndex={4}
     >
-      <input
-        type="text"
-        placeholder={text}
-        //TODO: add styles on focus
-        id="search-bar"
-        className="w-90 outline-none bg-neutral-200 text-xl py-3 px-3 rounded-l-xl dark:bg-neutral-800"
-        spellCheck="false"
-        autoFocus
-        onChange={handleChangeWord}
-        onKeyDown={handleKeyDown}
-        value={wordValue}
-      />
-      <div className="h-full flex justify-center items-center absolute right-0 bg-neutral-200 w-[10%] rounded-r-xl z-10 dark:bg-neutral-800">
+      <div className="h-full w-full relative">
+        <input
+          type="text"
+          placeholder={text}
+          id="search-bar"
+          className="w-full outline-5 text-xl py-4 px-3 rounded-xl bg-neutral-200 dark:bg-neutral-800 focus:outline-purple-main dark:focus:outline-white"
+          spellCheck="false"
+          autoFocus
+          onChange={handleChangeWord}
+          onKeyDown={handleKeyDown}
+          value={wordValue}
+        />
+
         <img
           src={searchImg}
           alt="search-icon"
           onClick={handleSendWord}
-          className="cursor-pointer h-6 w-6"
+          className="cursor-pointer h-5 w-5 absolute top-1/2 right-5 transform -translate-y-1/2 bg-neutral-200 dark:bg-neutral-800"
         />
       </div>
     </section>
