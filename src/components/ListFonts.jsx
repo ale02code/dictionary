@@ -33,7 +33,7 @@ function ListFonts() {
       />
 
       <div
-        className={`absolute border border-black  z-50 rounded-md bg-white transition-all duration-500 ${
+        className={`absolute border border-black  z-50 rounded-md bg-white transition-all duration-300 ${
           visible ? "translate-y-[65%] block" : "-translate-y-[40%] opacity-0"
         }`}
       >
