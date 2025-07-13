@@ -29,7 +29,6 @@ function App() {
   const [errorWord, setErrorWord] = useState(false);
 
   useEffect(() => {
-    // prefersScheme();
     fadeIn();
   }, []);
 
